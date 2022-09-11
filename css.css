@@ -1,0 +1,211 @@
+* {
+	border: none;
+	outline: none;
+	margin: 0;
+	background: none;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-touch-callout: none;
+	box-sizing: border-box;
+	user-select: none;
+}
+
+body {
+    display: block;
+    width: 100vw;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: hsl(205deg 98% 46%);
+}
+
+#proc {
+    position: absolute;
+    font-family: monospace;
+    font-size: 25px;
+    font-weight: 700;
+    padding: 0px 15px;
+    left: 50%;
+    bottom: -102px;
+    transform: translate(-50%, 0px);
+    border-radius: 20px;
+    color: hsl(213deg 90% 30%);
+    backdrop-filter: blur(10px) saturate(10) hue-rotate(0deg);
+    -webkit-backdrop-filter: blur(10px) saturate(10) hue-rotate(0deg);
+    background-color: hsl(0deg 0% 92% / 70%);
+}
+
+.strel {
+  position: absolute;
+  width: 160px;
+  height: 700px;
+  top: -310px;
+  left: -80px;
+  transform: rotateZ(48deg);
+}
+
+#cont {
+  position: absolute;
+  text-align: center;
+  left: 50%;
+  top: 70%;
+  transform: translate(-50%, -50%);
+  overflow: visible;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+#boll {
+ background-image: url(rzn/boll.png);
+ background-size: calc(100% - 50px);
+ background-position: center;
+ background-repeat: no-repeat;
+ width: 200px;
+ height: 200px;
+ position: fixed;
+ transform: translate(-50%, -50%);
+ transition: .5s;
+}
+
+.std3 #boll {
+/*    transform: translate(-50%, -600px) scale(0.35);*/
+}
+
+.fon, .vorota {
+    background-image: url(rzn/fon.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 1280px;
+    height: 768px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.vorota {
+    background-image: url(rzn/vratar.svg);
+	width: 600px;
+    height: 768px;
+	top:31%;
+}
+.power-animation {
+  max-width: 800px;
+  overflow: hidden;
+}
+#power {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+
+.std1 #power, .std1 #proc, .std3 #power, .std3 #proc {
+    display: none;
+}
+#power > .ar-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+#power .power-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 40%;
+  height: 40%;
+  margin: auto;
+}
+#power .power-animation {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  -moz-transform-origin: center center 50%;
+  -ms-transform-origin: center center 50%;
+  -webkit-transform-origin: center center 50%;
+  transform-origin: center center 50%;
+  -moz-animation: rotate 2s linear infinite;
+  -webkit-animation: rotate 2s linear infinite;
+  animation: rotate 2s linear infinite;
+}
+#power .power-animation > .power-path {
+  stroke-dasharray: 89,360;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+  -moz-animation: spin-trail 1.5s  infinite, power-color 6s  infinite;
+  -webkit-animation: spin-trail 1.5s  infinite, power-color 6s  infinite;
+  animation: spin-trail 1.5s  infinite, power-color 1.5s  infinite;
+}
+.strel {
+  -moz-animation: rotatestrel 1.5s infinite;
+  -webkit-animation: rotatestrel 1.5s infinite;
+  animation: rotatestrel 1.5s infinite;
+}
+.std2 .strel,.std3 .strel {
+    display: none;
+}
+#strel {
+  -moz-animation: strel-color 0.75s infinite;
+  -webkit-animation: strel-color 0.75s infinite;
+  animation: strel-color 0.75s infinite;
+}
+@keyframes rotate {
+  100% {
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotatestrel {
+  0%,100% {
+    -moz-transform: rotate(-48deg);
+    -ms-transform: rotate(-48deg);
+    -webkit-transform: rotate(-48deg);
+    transform: rotate(-48deg);
+  }
+  50% {
+    -moz-transform: rotate(48deg);
+    -ms-transform: rotate(48deg);
+    -webkit-transform: rotate(48deg);
+    transform: rotate(48deg);
+  }
+}
+@keyframes spin-trail {
+  0% {
+    stroke-dasharray: 0,360;
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dasharray: 360,360;
+    stroke-dashoffset: -120;
+  }
+}
+@keyframes power-color {
+  100%, 0% {
+    stroke: hsl(213deg 84% 40%);
+  }
+  50% {
+    stroke: hsl(10deg 100% 50%);
+  }
+}
+@keyframes strel-color {
+  100%, 0% {
+    fill: hsl(10deg 100% 50%);
+  }
+  50% {
+    fill: hsl(213deg 84% 40%);
+  }
+}
